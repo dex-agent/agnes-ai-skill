@@ -1,0 +1,102 @@
+{
+  "schema": "project.playbook.index.v1",
+  "generated_by": "tools/playbook/generate-playbook.py",
+  "authority": "derived_projection",
+  "repo_name": "agnes-ai-skill",
+  "sources_revision": "sha256:1a53d1918dbfa147ec69b8efb370591a0757d9528895023efe14e705df8113fa",
+  "sent_revision": "sha256:34b60c175a041efbee22a4943cc81ffd1104f638a9658f5f0632ec1c23e46abf",
+  "rules": [
+    {
+      "seal": "pb-25bcea4f",
+      "locator": "PENDENTES-LEDGER",
+      "title": "Autoridade e fronteiras",
+      "gatilho": "(schema `dex.pendencias.v2`; gatilho `PENDENTES-LEDGER`).",
+      "extrato": "- A fundação da família Dex vive em `C:\\CodexProjetos\\dex\\docs\\dex-foundation`",
+      "rotas": [],
+      "fonte": "AGENTS.md#L30-L47"
+    },
+    {
+      "seal": "pb-591c036f",
+      "locator": "CRLF-REPO-100-POR-CENTO",
+      "title": "Painel de Ferramentas",
+      "gatilho": "4. Memórias quentes: `.agents/GATILHOS-VIVOS.md` — `CRLF-REPO-100-POR-CENTO`, `SWIFT-BUILD-AMB-MACOS`, `W6-HARNESS-RECEITA`; L1 em `.agents...",
+      "extrato": "(Seção padrão da casa — popule no onboarding; molde completo no AGENTS global.)",
+      "rotas": [
+        "Mentor documental do tema: — (nenhuma skill `mentor-documen...",
+        "Dependências com IA embarcada (DEP-IA): NENHUMA — varredura...",
+        "Skills da casa aplicáveis: `dex-playbook-entrada` (envio),...",
+        "Memórias quentes: `.agents/GATILHOS-VIVOS.md` — `CRLF-REPO-..."
+      ],
+      "fonte": "AGENTS.md#L65-L77"
+    },
+    {
+      "seal": "pb-0e403a86",
+      "locator": "SWIFT-BUILD-AMB-MACOS",
+      "title": "Conhecimento (arqueologia W0-W10 de 2026-11-08)",
+      "gatilho": "ndeclarado",
+      "extrato": "- **Identidade**: skill pública `jomeswang/agnes-ai-skill` (repo local: `dex-agent/agnes-ai-skill`), CLI-first p/ Agnes AI. Artefato canôni...",
+      "rotas": [],
+      "fonte": "AGENTS.md#L78-L91"
+    }
+  ],
+  "mesa": {
+    "status": "",
+    "escopo": "",
+    "governance_version": "",
+    "secoes": [],
+    "total_derived": 0
+  },
+  "runbook": [
+    {
+      "data": "2026-11-08",
+      "localizador": "",
+      "titulo": "Edicao com LF puro neste repo vira diff de arquivo inteiro (repo 100% CRLF, ate .sh e .swift)",
+      "faca": "edicao preserva CRLF (ou `git config core.autocrlf input` por janela); tabela Enc completa no AGENTS.md §Conhecimento e memoria V2 `tabela-...",
+      "ancora": ".agents/napkin.md#L16",
+      "local": true
+    },
+    {
+      "data": "2026-11-08",
+      "localizador": "",
+      "titulo": "Provar build nao existe binario: e o harness (rota `W6-HARNESS-RECEITA` no GATILHOS-VIVOS)",
+      "faca": "`bash .agents/scripts/w6-build-harness.sh` + leia o receipt JSON; swift fica carimbado vermelho ate amb macOS (pendencia `SWIFT-BUILD-AMB-M...",
+      "ancora": ".agents/napkin.md#L18",
+      "local": true
+    }
+  ],
+  "nao_decodificadas": [
+    {
+      "titulo": "Bootstrap (toda janela nova, nesta ordem)",
+      "ancora": "AGENTS.md#L5"
+    },
+    {
+      "titulo": "Indexação (doutrina da casa)",
+      "ancora": "AGENTS.md#L23"
+    },
+    {
+      "titulo": "Abertura e fechamento de bloco",
+      "ancora": "AGENTS.md#L48"
+    },
+    {
+      "titulo": "Envio a terceiros",
+      "ancora": "AGENTS.md#L57"
+    }
+  ],
+  "fontes": [
+    {
+      "caminho": "AGENTS.md",
+      "sha256": "86cee176969c0025b37ff2e481047bd530fc15fa8bc3d75400cacc9ca52d72e6",
+      "enviado": true
+    },
+    {
+      "caminho": ".agents/napkin.md",
+      "sha256": "dc6083f0b6bb3c84923508a43b95b18c8b2aec2715f63f755b48755a885464ae",
+      "enviado": false
+    },
+    {
+      "caminho": ".agents/PLAN-TASKS/ACTIVE.md",
+      "sha256": "23d915fe3b00a9c68137f183793c324c50a147fca99002c308c531aff307ad56",
+      "enviado": false
+    }
+  ]
+}
