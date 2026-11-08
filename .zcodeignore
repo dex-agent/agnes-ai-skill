@@ -1,0 +1,5 @@
+# ZCode @-search (ZCODEIGNORE-DO-OWNER, GO do dono 2026-11-08)
+# midia binaria de marketing do skill (25MB) — fora do indice de busca
+assets/
+# estado vivo local da casa (memorias V2, receipts, gatilhos) — lido por bootstrap, nao por @-search
+.agents/

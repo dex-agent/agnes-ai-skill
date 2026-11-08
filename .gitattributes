@@ -2,3 +2,7 @@ scripts/extract_first_frames.swift linguist-documentation
 scripts/*.sh linguist-documentation
 examples/apps/*.html linguist-documentation
 docs/superpowers/specs/*.md linguist-documentation
+
+# pin de linha (GITATTR-TEXT-AUTO-GO, GO do dono 2026-11-08): Loja deterministica LF;
+# checkout expande por maquina; working tree CRLF sem clean-filter nao mais contamina a loja
+* text=auto
