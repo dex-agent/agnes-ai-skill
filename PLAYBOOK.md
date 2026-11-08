@@ -4,8 +4,8 @@ description: "Regras de decisao e procedimentos deste projeto - projecao gerada 
 type: playbook
 generated_by: "tools/playbook/generate-playbook.py"
 authority: derived_projection
-sources_revision: "sha256:a79f3cd822ef8f346129d541a8e854d05426ccbdc330959fef108b52b8f15669"
-sent_revision: "sha256:212e0fa945b08214356d58492a847ffac89de7397e2ae10707d0e96fdc2055a5"
+sources_revision: "sha256:d8a747564c8010afc2213545b10f25ed92609342329f2154188c4ea28eafe739"
+sent_revision: "sha256:e33a5664148ac22a51be6a59a6ae1c8dcd628a87c983049d7f53903a16bcf1fc"
 do_not_edit: true
 ---
 # Playbook - agnes-ai-skill
@@ -45,7 +45,7 @@ Destinatario do projeto: `--check-sent` valida as fontes enviadas neste clone.
 ### Conhecimento (arqueologia W0-W10 de 2026-11-08)
 
 - Localizador: `SWIFT-BUILD-AMB-MACOS`
-- Gatilho: ndeclarado
+- Gatilho: - **Tabela Enc** (byte-a-byte, 2026-11-08; lapidada 2× em 2026-11-08 via `$dex-ignore` + revisão socrática): working tree 100% **CRLF**, ze...
 - Extrato: - **Identidade**: skill pública `jomeswang/agnes-ai-skill` (repo local: `dex-agent/agnes-ai-skill`), CLI-first p/ Agnes AI. Artefato canôni...
 - Fonte: `AGENTS.md#L78-L91`
 - Selo: `pb-0e403a86`
@@ -63,8 +63,8 @@ Destinatario do projeto: `--check-sent` valida as fontes enviadas neste clone.
 
 | caminho | sha256 | Enviado? |
 | --- | --- | --- |
-| `AGENTS.md` | `d5ccea8d4d1168e96cd8d263bad667bdd602731e3342e3d914989a856a21e74d` | sim |
-| `.agents/napkin.md` | `47160f940fd067895b1f0e9af7dd19f1d5b4db5515151d75e6f03f38a89a3ec3` | nao |
+| `AGENTS.md` | `d572c1a15864e2f58d1c5dffca81fb7569f0f78630c2f6dd1366005813d23cbb` | sim |
+| `.agents/napkin.md` | `555ece9839e7f5bc86027caaf57bcff7d2865a966110a887c965680c5fbe0885` | nao |
 | `.agents/PLAN-TASKS/ACTIVE.md` | `23d915fe3b00a9c68137f183793c324c50a147fca99002c308c531aff307ad56` | nao |
 
 ## Superficie enviada vs local
