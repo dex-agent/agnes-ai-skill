@@ -9,7 +9,7 @@ Estreita `workflow/RULES.md` do ecossistema global.
 - R2: argv do build é SEMPRE transcrito do script REAL do dono; versão da tool DERIVADA do script, nunca literal; sem script do dono → lacuna com owner/quando.
 - R3: adapter da linguagem é declarado no W0.5 (extensões, denominador, parser NATIVO sim/não, métricas); W7 usa parser NATIVO quando existir, feeder custom SÓ quando não existir.
 - R4: rotas LEGADA vs VIVA com `diff -rq` quando ambas existirem; a mais nova é a verdade; a outra vira ponte no HANDOFF.
-- R5: encoding byte-a-byte ANTES de qualquer edição; terminação de linha CRLF global = achado forte (edição LF vira diff de arquivo inteiro).
+- R5: encoding byte-a-byte ANTES de qualquer edição; perfil EOL em 3 camadas — (a) disco (`file`/`od`), (b) LOJA git (`git cat-file blob` / `git ls-files --eol`; NUNCA `git show rev:path`, que aplica o filtro smudge local e não devolve o byte do blob), (c) máquina (`git config core.autocrlf`). CRLF no working tree pode ser apenas smudge local; modo ambíguo real = loja sem pin `text` no `.gitattributes` (working tree CRLF em máquina sem clean-filter colapsa a loja para CRLF no add).
 - R6: 3rd-party em 2 colunas COM licença ("entra no artefato" vs "presente no repo/lockfile"); DEP-IA varrido por dependência E na raiz; achado vira PONTEIRO, nunca cópia.
 - R7: segredos NUNCA ecoados — só metadado sanitizado (arquivo:linha, tipo).
 - R8: W6 exige exit 0 REAL medido SEM pipe + gate textual do dono + receipt JSON; ferramenta ausente = vermelho DECLARADO com owner do ambiente certo (ex.: swift no macOS), nunca falso verde.

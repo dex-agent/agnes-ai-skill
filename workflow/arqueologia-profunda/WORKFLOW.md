@@ -1,12 +1,12 @@
 ---
 schema: dex.workflow.v1
 slug: arqueologia-profunda
-version: 1.0.0
+version: 1.1.0
 status: ativo
-owner: agnes-ai-skill (instância local; dono = repo) — template global arqueologia-profunda@1.0.0
+owner: agnes-ai-skill (instância local; dono = repo) — template global arqueologia-profunda@1.1.0
 created: 2026-11-08
 updated: 2026-11-08
-origem: execução da arqueologia W0-W10 em <REPO_AGNESES> (repo de skill sem artefato binário; tier leve; swift carimbado vermelho) sobre a skill nuclear arqueologia-warmup-base; irmã do template dialetal arqueologia-delphi-profunda
+origem: template global arqueologia-profunda@1.1.0 (instanciação local no repo agnes-ai-skill)
 ---
 
 # Arqueologia Profunda Genérica (W-1 a W10, template de reuso multi-linguagem)
@@ -102,8 +102,12 @@ Meta-análise questionadora abaixo; ela integra a sequência obrigatória.
    `file`; `head -c 3 | od -An -tx1` (BOM); contagem bytes >=0x80 por
    `LC_ALL=C grep -c -P '[^\x00-\x7F]'`; validação `iconv -f UTF-8 -t UTF-8`.
    Classifique (ASCII/UTF-8/UTF-8 BOM/latin/CP1252 conforme o adapter do
-   passo 1) E a terminação de linha do repo (CRLF global = achado forte —
-   edição com LF puro vira diff de arquivo inteiro).
+   passo 1) E a terminação de linha em 3 camadas: (a) disco: `file` +
+   `head -c 3 | od -An -tx1`; (b) LOJA git: `git cat-file blob HEAD:<arq>`
+   (byte cru — `git show rev:path` MENTE: aplica o filtro smudge local no
+   stdout) + `git ls-files --eol` (índice); (c) máquina: `git config
+   core.autocrlf` (+ `--show-origin`: sistema? repo?). Perfil completo no
+   R5; contaminação real só via modo ambíguo (R5).
    ✅ Verificação: tabela Enc completa por arquivo; encoding suspeito → gate
    de edição segura ANTES de qualquer escrita.
 
@@ -209,3 +213,5 @@ Meta-análise questionadora abaixo; ela integra a sequência obrigatória.
 - Editar `AGENTS.md` global sem rodar `AGENTS-auto-copy.cmd` → espelhos driftam em silêncio → Faça em vez disso: `cd ~/.agents && cmd //c AGENTS-auto-copy.cmd` e conferir `GATE: OK`.
 - Script de cola que a skill dona já cobre → Faça em vez disso: varrer registry (`find-registry-skills.py`) ANTES; gap real → ESTACIONAMENTO com owner/quando.
 - Repo CRLF global editado com LF puro → diff de arquivo inteiro → Faça em vez disso: tabela Enc do W2 + edição preservando CRLF.
+- `git show rev:path` lido como byte do blob → conclusão "repo commita CRLF" FALSA (o smudge do `autocrlf` local expande o stdout) → Faça em vez disso: `git cat-file blob` (byte cru) + `git ls-files --eol` (índice); o que a loja commita é a camada (b), não o working tree.
+- Tabela Enc declarada sem as 3 camadas (disco/loja/máquina) → perfil de risco invertido (o repo de skill agnes pagou 2× em 2026-11-08) → Faça em vez disso: R5 (a+b+c) ANTES de declarar a Tabela Enc.
