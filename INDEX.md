@@ -22,3 +22,4 @@ Criado pelo dex-bootstrap; populado na arqueologia W0-W10 (2026-11-08).
 ## Regra anti-lixo
 
 `assets/` e `examples/` NAO ganham INDEX proprio (conteudo de suporte/derivado, nao curado); sao apontados acima. `tools/playbook/` e infra de ferramenta (dono: dex-playbook-entrada), nao ganha INDEX.
+- [workflow/INDEX.md](workflow/INDEX.md) — pacote de receita local (instância do template global arqueologia-profunda@1.0.0).
