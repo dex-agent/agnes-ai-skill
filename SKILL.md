@@ -247,9 +247,13 @@ Official lineup (family 2.5, available):
 - `agnes-2.5-flash`
   - chat, coding, reasoning, tools, streaming, vision
   - preferred default when `text chat` runs without `--model`
+  - works through the npm CLI 0.1.6 (live-verified)
 - `agnes-image-2.5-flash`
   - 1K-4K; text-to-image and image-to-image via `extra_body`
     (no `tags img2img` needed); preferred default image model
+  - CLI caveat: npm CLI 0.1.6 only accepts `agnes-image-2.0-flash` /
+    `agnes-image-2.1-flash` for image commands; use `--model
+    agnes-image-2.5-flash` through the platform API until the CLI lists it
 - `agnes-video-2.5`
   - text-to-video, image-to-video, multi-image guided video, keyframes
   - 720P-2K, 4-12s; poll with `video_id` + `model_name`
@@ -259,7 +263,8 @@ Official lineup (family 2.5, available):
 Series 3.0 (per the current official docs; not yet listed in the vendor catalog):
 
 - `agnes-3.0-flash`
-  - available; 512K context, 65,536 max output; thinking mode; tools and image input
+  - available; 512K context, 65,536 max output; thinking mode; tools and image
+    input; works through the npm CLI 0.1.6 (live-verified)
 - `agnes-3.0-pro`
   - coming soon; long-context analysis; reasoning may consume max output tokens
 
@@ -327,9 +332,9 @@ Use:
 - `img2img` for one input image
 - `compose` for multiple input images
 - if `--model` is omitted, the CLI default is the legacy
-  `agnes-image-2.1-flash`; pass `--model agnes-image-2.5-flash` for the
-  official lineup
-- image 2.5: `extra_body` carries `image`, `size`, `ratio` and
+  `agnes-image-2.1-flash`; CLI 0.1.6 only accepts `2.0-flash` / `2.1-flash`
+  for image commands; `agnes-image-2.5-flash` runs through the platform API
+- image 2.5 (API path): `extra_body` carries `image`, `size`, `ratio` and
   `response_format`; no `tags img2img` needed
 
 ### Video
