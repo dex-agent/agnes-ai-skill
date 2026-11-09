@@ -44,11 +44,11 @@ choose the proper Agnes model and execution path automatically.
 This skill helps agents:
 
 - set up Agnes AI and persist an `AGNES_API_KEY`
-- use `agnes-2.0-flash` for chat, coding, streaming, and tool calling
-- use `agnes-image-2.0-flash` and `agnes-image-2.1-flash` for AI image
-  generation, image editing, and image-to-image workflows
-- use `agnes-video-v2.0` for text-to-video, image-to-video, and async video
-  generation
+- use `agnes-2.5-flash` for chat, coding, reasoning, streaming, and tool calling
+- use `agnes-image-2.5-flash` for AI image generation, image editing, and
+  image-to-image workflows
+- use `agnes-video-2.5` (or `agnes-video-2.5-flash`) for text-to-video,
+  image-to-video, and async video generation
 - prefer the companion `agnes-ai-cli` for live requests
 
 Compatible tools: Codex, Claude Code, Claude Desktop, OpenClaw, Hermes,
@@ -74,10 +74,9 @@ SKILL.md-compatible environments.
 This repository packages a single root `SKILL.md` so coding agents can quickly:
 
 - get and persist an Agnes API key
-- use `agnes-2.0-flash` for chat, coding, streaming, and tool calling
-- use `agnes-image-2.0-flash` and `agnes-image-2.1-flash` for image generation
-  and editing
-- use `agnes-video-v2.0` for asynchronous video generation and polling
+- use `agnes-2.5-flash` for chat, coding, reasoning, streaming, and tool calling
+- use `agnes-image-2.5-flash` for image generation and editing
+- use `agnes-video-2.5` for asynchronous video generation and polling
 
 It is designed for the exact pitch that makes Agnes easy to try:
 
@@ -127,33 +126,35 @@ agnes --help
 
 ## Model Guide
 
-Use the repository skill with these defaults:
+Use the repository skill with these defaults (lineup current as of 2026-11-09,
+per the official AgnesAI-Labs model catalog and `wiki.agnes-ai.com`):
 
-- `agnes-2.0-flash`
-  - chat, coding, streaming, tool calling, and agent workflows
-  - default when `text chat` runs without `--model`
-- `agnes-image-2.1-flash`
-  - default for new text-to-image and image-to-image work
-  - strongest fit for denser layouts, richer detail, and better semantic
-    alignment
-  - default when `image text2img`, `image img2img`, or `image compose` runs
-    without `--model`
-- `agnes-image-2.0-flash`
-  - better when you explicitly need its documented `tags: ["img2img"]` flow,
-    multi-image composition, or `seed`-based reproducibility
-- `agnes-video-v2.0`
-  - text-to-video, image-to-video, multi-image guided video, keyframes, and
-    asynchronous polling
-  - current default when any `video` generate command runs without `--model`
+- `agnes-2.5-flash`
+  - chat, coding, reasoning, tools, streaming, and vision
+  - preferred default when `text chat` runs without `--model`
+- `agnes-image-2.5-flash`
+  - preferred default for new text-to-image and image-to-image work
+  - 1K-4K; `extra_body` carries `image`, `size`, `ratio` and `response_format`
+    (no `tags img2img` needed)
+- `agnes-video-2.5`
+  - text-to-video, image-to-video, multi-image guided video, keyframes
+  - 720P-2K, 4-12s; poll with `video_id` + `model_name`
+  - `agnes-video-2.5-flash`: 720P only, no video references, 5 images + 3 audio max
 
-The official docs also give each model fairly different best practices:
+Series 3.0 (current official docs; not yet in the vendor catalog):
 
-- Image 2.1 leans into high-information-density visuals and composition
-  preservation
-- Image 2.0 is more explicit about edit/composition workflows, response fields,
-  and OpenAI Images-style compatibility
-- Video 2.0 is task-based and documents multiple generation modes, task states,
-  result polling, and frame-count constraints
+- `agnes-3.0-flash` - available; 512K context, 65,536 max output, thinking mode
+- `agnes-3.0-pro` - coming soon; long-context analysis
+
+Legacy (still routable, not the recommended path; the AgnesAI-Labs catalog
+marks image 2.0 and video 2.0 as legacy compatibility choices):
+
+- `agnes-2.0-flash` (text), `agnes-image-2.0-flash`, `agnes-image-2.1-flash`
+  (image), `agnes-video-v2.0` (video)
+
+Pricing anchors (official docs, 2026-11-09): text 2.5-flash / 3.0-flash
+$0.05/1M input, $0.15/1M output; 2.5-pro / 3.0-pro $0.45/1M input, $0.90/1M
+output; images $10-$24 per 1,000; video 2.5 $0.025-$0.055 per second.
 
 ## Showcase
 

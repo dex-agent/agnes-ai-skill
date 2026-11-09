@@ -3,6 +3,22 @@
 Fonte das versões: `SKILL.md` §Version History (projeção canônica deste repo).
 Regra da casa: quem edita fonte regenera; nada de entrada inventada.
 
+## [1.3.0] — Skill Agnes AI
+
+- Linha de modelos alinhada ao catálogo oficial AgnesAI-Labs: família 2.5 como padrão
+  (texto `agnes-2.5-flash`; imagem `agnes-image-2.5-flash`; vídeo `agnes-video-2.5`
+  e `agnes-video-2.5-flash`).
+- Série 3.0 documentada conforme docs oficiais (`3.0-flash` disponível; `3.0-pro` em
+  preparação); modelos 2.0 marcados como legacy (catálogo oficial).
+- Polling de vídeo: `GET /agnesapi?video_id=<ID>&model_name=<modelo>` (`model_name`
+  obrigatório); `taskId` legado permanece compatível.
+- img2img da imagem 2.5 via `extra_body` (sem `tags img2img`).
+- Nota CLI: caret `^0.1.0` instala o 0.1.6 (publicado 2026-11-09); upload interno de
+  mídia (fallback Litterbox/tmpfiles/Uguu/x0.at); `scripts/agnes-media-url.sh` vira
+  fallback documentado.
+- Fonte de verdade atualizada: hub de docs em `wiki.agnes-ai.com` + índice `llms.txt`
+  + catálogo do fornecedor `AgnesAI-Labs/skills`.
+
 ## [1.2.2] — Skill Agnes AI
 
 - Adicionado README chinês linkado e orientação de quick-start em chinês para respostas de agentes.

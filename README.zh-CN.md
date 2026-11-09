@@ -37,9 +37,9 @@ npx skills add jomeswang/agnes-ai-skill -g
 这个 Skill 会帮助 Agent：
 
 - 完成 Agnes AI 接入并持久化 `AGNES_API_KEY`
-- 使用 `agnes-2.0-flash` 进行聊天、编码、流式输出和工具调用
-- 使用 `agnes-image-2.0-flash` 与 `agnes-image-2.1-flash` 进行 AI 生图、图片编辑和图生图
-- 使用 `agnes-video-v2.0` 进行文生视频、图生视频和异步视频生成
+- 使用 `agnes-2.5-flash` 进行聊天、编码、推理、流式输出和工具调用
+- 使用 `agnes-image-2.5-flash` 进行 AI 生图、图片编辑和图生图
+- 使用 `agnes-video-2.5`（或 `agnes-video-2.5-flash`）进行文生视频、图生视频和异步视频生成
 - 优先使用配套 `agnes-ai-cli` 执行真实请求
 
 兼容工具：Codex、Claude Code、Claude Desktop、OpenClaw、Hermes、WorkBuddy、
@@ -63,9 +63,9 @@ Cherry Studio、Opencode、Kimi Work，以及其他 Agent Skills / SKILL.md 兼�
 这个仓库提供一个根目录 `SKILL.md`，让编码 Agent 可以快速：
 
 - 获取并持久化 Agnes API Key
-- 使用 `agnes-2.0-flash` 进行聊天、编码、流式输出和工具调用
-- 使用 `agnes-image-2.0-flash` 与 `agnes-image-2.1-flash` 进行图像生成和编辑
-- 使用 `agnes-video-v2.0` 进行异步视频生成和轮询
+- 使用 `agnes-2.5-flash` 进行聊天、编码、推理、流式输出和工具调用
+- 使用 `agnes-image-2.5-flash` 进行图像生成和编辑
+- 使用 `agnes-video-2.5` 进行异步视频生成和轮询（`video_id` + `model_name`）
 
 它适合 Agnes 最容易上手的使用场景：
 

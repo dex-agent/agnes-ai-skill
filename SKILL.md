@@ -1,6 +1,6 @@
 ---
 name: agnes-ai-skill
-version: 1.2.2
+version: 1.3.0
 description: "Use when the user wants Agnes AI text, image, or video generation and should execute it through the agnes-ai-cli command line instead of hand-writing raw HTTP requests."
 tags:
   - agnes
@@ -80,14 +80,13 @@ Do not use this skill when:
 
 ## Source Of Truth
 
-Prefer these Agnes pages:
+Prefer these Agnes sources (current as of 2026-11-09):
 
-- Quickstart: `https://agnes-ai.com/doc/quickstart`
+- Docs hub: `https://wiki.agnes-ai.com/en/docs` (old `https://agnes-ai.com/doc/...` URLs redirect here)
+- LLM index: `https://wiki.agnes-ai.com/llms.txt`
+- Official model catalog (vendor skill repo): `https://github.com/AgnesAI-Labs/skills` -> `agnes-ai-models/references/model_catalog.md`
+- Per-model pages: `https://wiki.agnes-ai.com/en/docs/` (one page per model, for example `agnes-25-flash.md`)
 - API key page: `https://platform.agnes-ai.com/settings/apiKeys`
-- Text docs: `https://agnes-ai.com/doc/agnes-20-flash`
-- Image 2.0 docs: `https://agnes-ai.com/doc/agnes-image-20-flash`
-- Image 2.1 docs: `https://agnes-ai.com/doc/agnes-image-21-flash`
-- Video docs: `https://agnes-ai.com/doc/agnes-video-v20`
 - Published CLI: `https://www.npmjs.com/package/agnes-ai-cli`
 - CLI repo: `https://github.com/jomeswang/agnes-ai-cli`
 
@@ -239,23 +238,38 @@ the `npx -y agnes-ai-cli@^0.1.0` prefix and run the same subcommands directly.
 
 ## Model Selection
 
-Choose the smallest suitable Agnes model path:
+Choose the smallest suitable Agnes model path. The official AgnesAI-Labs model
+catalog (`AgnesAI-Labs/skills` -> `agnes-ai-models/references/model_catalog.md`)
+plus the docs at `wiki.agnes-ai.com/en/docs` are the current sources of truth.
 
-- `agnes-2.0-flash`
-  - chat, coding, tool calling, structured agent work, fast production tasks
-  - default when `text chat` runs without `--model`
-- `agnes-image-2.1-flash`
-  - default for new text-to-image and straightforward image-to-image work
-  - especially useful for denser layouts and stronger semantic alignment
-  - default when `image text2img`, `image img2img`, or `image compose` runs
-    without `--model`
-- `agnes-image-2.0-flash`
-  - use when the user explicitly wants Image 2.0
-  - useful for edit-heavy or multi-image composition flows
-- `agnes-video-v2.0`
-  - use for text-to-video, image-to-video, multi-image guided video, and
-    keyframes
-  - current default when any `video` generate command runs without `--model`
+Official lineup (family 2.5, available):
+
+- `agnes-2.5-flash`
+  - chat, coding, reasoning, tools, streaming, vision
+  - preferred default when `text chat` runs without `--model`
+- `agnes-image-2.5-flash`
+  - 1K-4K; text-to-image and image-to-image via `extra_body`
+    (no `tags img2img` needed); preferred default image model
+- `agnes-video-2.5`
+  - text-to-video, image-to-video, multi-image guided video, keyframes
+  - 720P-2K, 4-12s; poll with `video_id` + `model_name`
+- `agnes-video-2.5-flash`
+  - 720P only; no video references; at most 5 images + 3 audio inputs
+
+Series 3.0 (per the current official docs; not yet listed in the vendor catalog):
+
+- `agnes-3.0-flash`
+  - available; 512K context, 65,536 max output; thinking mode; tools and image input
+- `agnes-3.0-pro`
+  - coming soon; long-context analysis; reasoning may consume max output tokens
+
+Legacy (still routable, not the recommended path):
+
+- `agnes-2.0-flash` (text)
+- `agnes-image-2.0-flash` and `agnes-image-2.1-flash` (image)
+- `agnes-video-v2.0` (video)
+  - the AgnesAI-Labs catalog marks `image-2.0-flash` and `video-v2.0` as
+    legacy compatibility choices; prefer the 2.5 family
 
 ## CLI Command Map
 
@@ -276,7 +290,11 @@ npx -y agnes-ai-cli@^0.1.0 media url https://example.com/already-remote.png
 ```
 
 Use this when the user gives a local image path and Agnes needs a public image
-URL. The CLI handles the temporary upload bridge automatically.
+URL. The CLI handles the temporary upload bridge automatically. As of 2026-11-09
+the published CLI is `0.1.6` (the caret `^0.1.0` installs it); local media
+upload is handled internally by the CLI (fallback order: Litterbox, tmpfiles,
+Uguu, x0.at), so the local `scripts/agnes-media-url.sh` (Litterbox) remains a
+documented fallback, not the only path.
 
 ### Text
 
@@ -285,7 +303,8 @@ npx -y agnes-ai-cli@^0.1.0 text chat --prompt "Reply with exactly pong."
 ```
 
 Use this for one-shot text verification, coding help, or small agent checks.
-If `--model` is omitted here, the CLI defaults to `agnes-2.0-flash`.
+If `--model` is omitted here, the CLI default is the legacy
+`agnes-2.0-flash`; pass `--model agnes-2.5-flash` for the official lineup.
 
 ### Image
 
@@ -307,7 +326,11 @@ Use:
 - `text2img` for prompt-only image generation
 - `img2img` for one input image
 - `compose` for multiple input images
-- if `--model` is omitted, the CLI defaults to `agnes-image-2.1-flash`
+- if `--model` is omitted, the CLI default is the legacy
+  `agnes-image-2.1-flash`; pass `--model agnes-image-2.5-flash` for the
+  official lineup
+- image 2.5: `extra_body` carries `image`, `size`, `ratio` and
+  `response_format`; no `tags img2img` needed
 
 ### Video
 
@@ -339,7 +362,12 @@ Use:
 - `multivideo` for multiple guiding images
 - `keyframes` for explicit keyframe interpolation
 - `poll` for asynchronous completion
-- if `--model` is omitted, current CLI behavior uses `agnes-video-v2.0`
+- if `--model` is omitted, the CLI default is the legacy `agnes-video-v2.0`;
+  pass `--model agnes-video-2.5` (or `agnes-video-2.5-flash`) for the
+  official lineup
+- Video 2.5 uses `size` (720P-2K), `seconds` (4-12) and `mode`; polling is
+  `GET https://apihub.agnes-ai.com/agnesapi?video_id=<ID>&model_name=<model>`,
+  and `model_name` is required; legacy `taskId` polling still works for older tasks
 
 ## Practical CLI Workflow
 
@@ -393,8 +421,9 @@ Use:
 
 Use the CLI as the execution layer, but keep these Agnes-specific rules in mind:
 
-- Image 2.1 is the default for most new image work
-- Image 2.0 is useful for edit-heavy or multi-image composition work
+- Image 2.5 flash is the official default for new image work; Image 2.1
+  remains available and Image 2.0 is a legacy compatibility choice
+- for 2.5, img2img goes through `extra_body.image`; sizes run 1K-4K
 - For edits, explicitly separate:
   - what should change
   - what must stay fixed
@@ -410,14 +439,19 @@ Use the CLI as the execution layer, but keep these Agnes-specific rules in mind:
 Use the CLI as the execution layer, but keep these Agnes-specific rules in mind:
 
 - the API is asynchronous
-- `num_frames` must be `<= 441`
-- `num_frames` must satisfy `8n + 1`
-- `frame_rate` supports `1-60`
-- common safe example settings are:
-  - `width: 1152`
-  - `height: 768`
-  - `num_frames: 121`
-  - `frame_rate: 24`
+- Video 2.5: use `size` (720P-2K), `seconds` (4-12) and `mode`; poll with
+  `video_id` + `model_name` (the `model_name` parameter is required);
+  the 2.5-flash variant is 720P-only, allows no video references and takes
+  at most 5 images + 3 audio inputs
+- legacy Video 2.0 rules (only when explicitly using `agnes-video-v2.0`):
+  - `num_frames` must be `<= 441`
+  - `num_frames` must satisfy `8n + 1`
+  - `frame_rate` supports `1-60`
+  - common safe example settings are:
+    - `width: 1152`
+    - `height: 768`
+    - `num_frames: 121`
+    - `frame_rate: 24`
 - for keyframes, use the dedicated CLI subcommand instead of inventing your
   own payload shape
 
@@ -524,6 +558,7 @@ comes up.
 
 ## Version History
 
+`1.3.0` - Refreshed the model lineup to the official AgnesAI-Labs family 2.5 (text 2.5-flash, image-2.5-flash, video-2.5 and 2.5-flash), added the 3.0 series per the current official docs, marked the 2.0 models as legacy, documented video polling with `video_id` + `model_name`, image-to-image via `extra_body` (no `tags img2img`), CLI 0.1.6 notes and the updated docs hub (`wiki.agnes-ai.com` + vendor model catalog).
 - `1.2.2` - Added a linked Chinese README and Chinese quick-start onboarding
   guidance for agent responses.
 - `1.2.1` - Made `npx -y agnes-ai-cli@^0.1.0` the default copy-paste execution

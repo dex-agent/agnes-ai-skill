@@ -3,7 +3,7 @@
   "generated_by": "tools/playbook/generate-playbook.py",
   "authority": "derived_projection",
   "repo_name": "agnes-ai-skill",
-  "sources_revision": "sha256:2ba8950fcd445d922e1093c3ec74a7488821087775a94ea4fefdbe1380c750cd",
+  "sources_revision": "sha256:ef0d3d5526522b4e6278472dbce3f4efac04a83a59a57310bfe476bbe740f737",
   "sent_revision": "sha256:dc05ca4a8e34733455ab064f69ffdcfd1b910e252a4c3b066c3a581fa575a831",
   "rules": [
     {
@@ -104,7 +104,7 @@
     },
     {
       "caminho": ".agents/PLAN-TASKS/ACTIVE.md",
-      "sha256": "bdebc9a84e62ccfd28a6ced56aa4e404b2ad1068a15f936d3f0e94f74983639b",
+      "sha256": "b17e9612d34c3a6f47e7a37496b5c71155c78e80782be9a3c9d97b0965193786",
       "enviado": false
     }
   ]
