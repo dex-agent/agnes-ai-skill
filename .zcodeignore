@@ -3,3 +3,5 @@
 assets/
 # estado vivo local da casa (memorias V2, receipts, gatilhos) — lido por bootstrap, nao por @-search
 .agents/
+# estado local do runtime PPIRTV (fora do indice)
+.ppirtv/
