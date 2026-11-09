@@ -4,8 +4,8 @@ description: "Regras de decisao e procedimentos deste projeto - projecao gerada 
 type: playbook
 generated_by: "tools/playbook/generate-playbook.py"
 authority: derived_projection
-sources_revision: "sha256:1e78be1ae6f0198532134bfe0a6edf6ad5e448fa40d4e01b21f19fad79f913b6"
-sent_revision: "sha256:e33a5664148ac22a51be6a59a6ae1c8dcd628a87c983049d7f53903a16bcf1fc"
+sources_revision: "sha256:2ba8950fcd445d922e1093c3ec74a7488821087775a94ea4fefdbe1380c750cd"
+sent_revision: "sha256:dc05ca4a8e34733455ab064f69ffdcfd1b910e252a4c3b066c3a581fa575a831"
 do_not_edit: true
 ---
 # Playbook - agnes-ai-skill
@@ -47,8 +47,16 @@ Destinatario do projeto: `--check-sent` valida as fontes enviadas neste clone.
 - Localizador: `SWIFT-BUILD-AMB-MACOS`
 - Gatilho: - **Tabela Enc** (byte-a-byte, 2026-11-08; lapidada 2× em 2026-11-08 via `$dex-ignore` + revisão socrática): working tree 100% **CRLF**, ze...
 - Extrato: - **Identidade**: skill pública `jomeswang/agnes-ai-skill` (repo local: `dex-agent/agnes-ai-skill`), CLI-first p/ Agnes AI. Artefato canôni...
-- Fonte: `AGENTS.md#L78-L91`
-- Selo: `pb-0e403a86`
+- Fonte: `AGENTS.md#L78-L90`
+- Selo: `pb-611967c5`
+
+### Pesquisas
+
+- Localizador: `PESQUISA-AGNES-UPDATE-261109`
+- Gatilho: - `.agents/PESQUISA/INDEX.md` — pesquisas documentadas com relatórios, fontes e artifacts (gatilho: `PESQUISA-AGNES-UPDATE-261109`)
+- Extrato: - `.agents/PESQUISA/INDEX.md` — pesquisas documentadas com relatórios, fontes e artifacts (gatilho: `PESQUISA-AGNES-UPDATE-261109`)
+- Fonte: `AGENTS.md#L91-L96`
+- Selo: `pb-a8d5ed1c`
 
 ## Runbook <-> Playbook (procedimentos)
 
@@ -63,7 +71,7 @@ Destinatario do projeto: `--check-sent` valida as fontes enviadas neste clone.
 
 | caminho | sha256 | Enviado? |
 | --- | --- | --- |
-| `AGENTS.md` | `d572c1a15864e2f58d1c5dffca81fb7569f0f78630c2f6dd1366005813d23cbb` | sim |
+| `AGENTS.md` | `2246b28f1be9fffda03e7143abf57084e977f52381b34ebf523b873f9328a927` | sim |
 | `.agents/napkin.md` | `555ece9839e7f5bc86027caaf57bcff7d2865a966110a887c965680c5fbe0885` | nao |
 | `.agents/PLAN-TASKS/ACTIVE.md` | `bdebc9a84e62ccfd28a6ced56aa4e404b2ad1068a15f936d3f0e94f74983639b` | nao |
 

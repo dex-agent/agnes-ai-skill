@@ -86,6 +86,11 @@ editar as fontes (`python -B tools\playbook\generate-playbook.py --repo . --writ
 - **Segredos**: zero valor de segredo no repo; padrão único = `AGNES_API_KEY` (env var, nunca commitada — frontmatter `primaryEnv`).
 - **Pódio (plano B declarado)**: tier leve (denominador < 10 editáveis) → sem ferramenta oficial de métricas; CC manual: `writeFirstFrame` (swift, CC~4, 75 linhas) e `agnes-media-url.sh` (CC~5, 41 linhas). God Class/Long Method: **ausentes** (repo é documento + scripts auxiliares).
 - **W4b DEP-IA**: varrido — nenhum.
+- **Status de atualização (pesquisa 2026-11-09, gatilho `PESQUISA-AGNES-UPDATE-261109`)**: docs oficiais (wiki.agnes-ai.com) documentam o lineup 2.5/3.0 (texto 3.0-flash disponível 512K/65536; 3.0-pro coming soon; image 2.5-flash; video 2.5/2.5-flash com polling `GET /agnesapi?video_id=<ID>&model_name=...`); skill v1.2.2 documenta ainda o lineup 2.0; CLI npm = 0.1.6. Plano de atualização MINOR 1.3.0 salvo em `.agents/PESQUISA/` (nao versionado no repo publico).
+
+## Pesquisas
+
+- `.agents/PESQUISA/INDEX.md` — pesquisas documentadas com relatórios, fontes e artifacts (gatilho: `PESQUISA-AGNES-UPDATE-261109`)
 
 
 <!-- playbook-pointer:start -->
